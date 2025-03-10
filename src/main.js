@@ -5,7 +5,7 @@ const express = require("express");
 const compression = require("compression");
 const pino = require("pino-http");
 const logger = require("pino")();
-const todosRoute = require("./routes/todosRoute");
+const notesRoute = require("./routes/notesRoute");
 const HttpError = require("./errors/HttpError");
 const httpStatusCode = require("./constants/httpStatusCode");
 const ErrorResponse = require("./dtos/responses/ErrorResponse");
@@ -37,7 +37,7 @@ app.use(pino());
 app.use(helmet());
 
 // routes
-app.use("/api/v1/todos", todosRoute);
+app.use("/api/v1/notes", notesRoute);
 
 // error handler
 app.all("*", (req, res, next) => {

@@ -1,4 +1,4 @@
-class FoundTodoBuilder {
+class FoundNoteBuilder {
     id(id) {
         this.id = id;
         return this;
@@ -25,11 +25,11 @@ class FoundTodoBuilder {
     }
 
     build() {
-        return new FoundTodo(this.id, this.title, this.content, this.createdAt, this.updatedAt);
+        return new FoundNote(this.id, this.title, this.content, this.createdAt, this.updatedAt);
     }
 }
 
-class FoundTodo {
+class FoundNote {
     constructor(id, title, content, createdAt, updatedAt) {
         this.id = id;
         this.title = title;
@@ -39,18 +39,18 @@ class FoundTodo {
     }
 
     static builder() {
-        return new FoundTodoBuilder();
+        return new FoundNoteBuilder();
     }
 
-    static fromEntity(todo) {
-        return FoundTodo.builder()
-            .id(todo.id)
-            .title(todo.title)
-            .content(todo.content)
-            .createdAt(todo.createdAt)
-            .updatedAt(todo.updatedAt)
+    static fromEntity(note) {
+        return FoundNote.builder()
+            .id(note.id)
+            .title(note.title)
+            .content(note.content)
+            .createdAt(note.createdAt)
+            .updatedAt(note.updatedAt)
             .build();
     }
 }
 
-module.exports = FoundTodo;
+module.exports = FoundNote;

@@ -1,24 +1,24 @@
 const HttpError = require("../errors/HttpError");
-const Todo = require("../models/Todo");
+const Note = require("../models/Note");
 const httpStatusCode = require("../constants/httpStatusCode");
 
 async function create(request) {
-    return await Todo.create({
+    return await Note.create({
         title: request.title,
         content: request.content 
     });
 }
 
 async function findAll() {
-    return await Todo.findAll();
+    return await Note.findAll();
 }
 
 async function findById(id) {
-    const response = await Todo.findByPk(id);
+    const response = await Note.findByPk(id);
 
     if (!response) {
         throw HttpError.builder()
-            .message("Todo Not Found")
+            .message("Note Not Found")
             .statusCode(httpStatusCode.NOT_FOUND)
             .build();
     }
@@ -27,7 +27,7 @@ async function findById(id) {
 }
 
 async function updateById(id, request) {
-    const affectedCount = await Todo.update(
+    const affectedCount = await Note.update(
         { 
             title: request.title,
             content: request.content
@@ -40,14 +40,14 @@ async function updateById(id, request) {
     );
     if (!affectedCount) {
         throw HttpError.builder()
-            .message("Todo not found")
+            .message("Note not found")
             .statusCode(httpStatusCode.NOT_FOUND)
             .build();
     }
 }
 
 async function deleteById(id) {
-    await Todo.destroy({
+    await Note.destroy({
         where: {
             id
         }

@@ -1,6 +1,6 @@
 const express = require("express");
 
-const { create, findAll, findById, updateById, deleteById } = require("../controllers/todosController");
+const { create, findAll, findById, updateById, deleteById } = require("../controllers/notesController");
 
 const router = express.Router();
 
@@ -8,7 +8,7 @@ router.route("/")
     .post(create)
     .get(findAll);
 
-router.route("/:todoId")
+router.route("/:noteId")
     .get(findById)
     .put(updateById)
     .delete(deleteById);

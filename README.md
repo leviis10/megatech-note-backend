@@ -1,3 +1,3 @@
-# Todo Backend
+# Notes App Backend
 
-todo backend project for react crash course from megatech academy
+Notes App backend project for react crash course from megatech academy

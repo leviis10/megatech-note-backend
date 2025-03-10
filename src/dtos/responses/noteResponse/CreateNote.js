@@ -1,4 +1,4 @@
-class CreateTodoBuilder {
+class CreateNoteBuilder {
     id(id) {
         this.id = id;
         return this;
@@ -25,11 +25,11 @@ class CreateTodoBuilder {
     }
 
     build() {
-        return new CreateTodo(this.id, this.title, this.content, this.createdAt, this.updatedAt);
+        return new CreateNote(this.id, this.title, this.content, this.createdAt, this.updatedAt);
     }
 }
 
-class CreateTodo {
+class CreateNote {
     constructor(id, title, content, createdAt, updatedAt) {
         this.id = id;
         this.title = title;
@@ -39,18 +39,18 @@ class CreateTodo {
     }
 
     static builder() {
-        return new CreateTodoBuilder();
+        return new CreateNoteBuilder();
     }
 
-    static fromEntity(todo) {
-        return CreateTodo.builder()
-            .id(todo.id)
-            .title(todo.title)
-            .content(todo.content)
-            .createdAt(todo.createdAt)
-            .updatedAt(todo.updatedAt)
+    static fromEntity(note) {
+        return CreateNote.builder()
+            .id(note.id)
+            .title(note.title)
+            .content(note.content)
+            .createdAt(note.createdAt)
+            .updatedAt(note.updatedAt)
             .build();
     }
 }
 
-module.exports = CreateTodo;
+module.exports = CreateNote;

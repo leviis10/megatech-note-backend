@@ -3,8 +3,8 @@ const DB = require("../db/DB");
 
 const sequelize = DB.getInstance();
 
-const Todo = sequelize.define(
-    "Todo",
+const Note = sequelize.define(
+    "Note",
     {
         id: {
             type: DataTypes.INTEGER,
@@ -24,4 +24,4 @@ const Todo = sequelize.define(
     }
 );
 
-module.exports = Todo;
+module.exports = Note;
